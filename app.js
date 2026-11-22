@@ -4,9 +4,8 @@
 (function (root) {
   'use strict';
 
-  // Der öffentliche Mapbox-Schlüssel steht in config.js oder wird einmalig in der App eingegeben.
+  // Der öffentliche Mapbox-Schlüssel steht in config.js.
   var TOKEN = (root.WW_CONFIG && root.WW_CONFIG.mapboxToken) || '';
-  try { TOKEN = TOKEN || (root.localStorage && localStorage.getItem('ww-mapbox-token')) || ''; } catch (e) { /* ohne Speicher weiter */ }
   var CENTER = [16.2745, 48.2175];
   var DAYS = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
   var ICON = {
@@ -204,10 +203,6 @@
     var html = '';
     sheet.classList.toggle('is-compact', state.tab === 'karte');
     if (state.tab === 'karte') {
-      if (!TOKEN) html += '<form class="card" data-token-form="1"><div class="title">Kartenschlüssel eingeben</div>' +
-        '<p class="text">Füge einmalig deinen öffentlichen Mapbox-Schlüssel ein (beginnt mit „pk.“). Er bleibt nur auf diesem Gerät gespeichert.</p>' +
-        '<label class="field"><span>Mapbox-Schlüssel</span><input name="token" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="pk.…"></label>' +
-        '<div class="btn-row"><button type="submit" class="btn primary">Speichern</button></div></form>';
       if (state.mapError) html += '<div class="card"><div class="title">Karte nicht verfügbar</div><p class="text">' + esc(state.mapError) + '</p></div>';
       if (state.placeId && state.byId[state.placeId]) html += placeCard(state.byId[state.placeId]);
       else if (state.routeId && routeById(state.routeId)) html += routeCard(routeById(state.routeId));
@@ -258,7 +253,7 @@
   }
 
   function initMap() {
-    if (!TOKEN) return;
+    if (!TOKEN) { state.mapError = 'Der Kartenschlüssel fehlt in den Einstellungen der App.'; return; }
     if (!root.mapboxgl) { state.mapError = 'Die Kartenbibliothek konnte nicht geladen werden. Bitte Verbindung prüfen.'; return; }
     mapboxgl.accessToken = TOKEN;
     var map = state.map = new mapboxgl.Map({ container: 'map', style: 'mapbox://styles/mapbox/outdoors-v12', center: CENTER, zoom: 13.4, attributionControl: true });
@@ -325,16 +320,6 @@
     else if (t.hasAttribute('data-back')) { state.detail = false; render(); }
     else if (t.hasAttribute('data-show-route')) showRoute(t.getAttribute('data-show-route'));
     else if (t.hasAttribute('data-show-place')) showPlace(t.getAttribute('data-show-place'));
-  });
-
-  document.addEventListener('submit', function (ev) {
-    var form = ev.target.closest('[data-token-form]');
-    if (!form) return;
-    ev.preventDefault();
-    var value = (form.elements.token.value || '').trim();
-    if (value.indexOf('pk.') !== 0) { form.elements.token.focus(); return; }
-    try { localStorage.setItem('ww-mapbox-token', value); } catch (e) { /* ohne Speicher weiter */ }
-    root.location.reload();
   });
 
   initMap();

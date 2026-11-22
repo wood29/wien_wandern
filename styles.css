@@ -110,5 +110,3 @@ button.card { cursor: pointer; }
 .pin svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .mapboxgl-ctrl-top-right { top: calc(8px + env(safe-area-inset-top)); }
 
-.field { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; font-size: 12px; color: var(--muted); }
-.field input { min-height: 48px; border: 1px solid var(--line); border-radius: 12px; padding: 0 12px; font: inherit; font-size: 16px; color: var(--ink); background: #FFFFFF; }
