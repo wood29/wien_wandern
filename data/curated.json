@@ -1,0 +1,76 @@
+{
+  "checked": "2026-11-22",
+  "routes": [
+    {
+      "id": "jubi-runde",
+      "kind": "Hausrunde",
+      "name": "Jubiläumswarte-Runde",
+      "summary": "Von der Feuerwache durch den Ottakringer Wald zur Kreuzeichenwiese und auf die Jubiläumswarte, zurück am Teich vorbei.",
+      "tags": ["Aussicht", "Wald und Teich"],
+      "draftStops": ["feuerwache", "kreuzeichenwiese", "jubilaeumswarte", "teich", "feuerwache"],
+      "stops": ["feuerwache", "kreuzeichenwiese", "jubilaeumswarte", "teich", "herrmann"]
+    },
+    {
+      "id": "steinhof-runde",
+      "kind": "Hausrunde",
+      "name": "Steinhofgründe-Runde",
+      "summary": "Leichte Runde über die Wiesen der Steinhofgründe, mit Einkehr im Großen Schutzhaus.",
+      "tags": ["Wiesen", "Familien"],
+      "draftStops": ["feuerwache", "schutzhaus", "ottowagner", "feuerwache"],
+      "stops": ["feuerwache", "schutzhaus", "ottowagner"]
+    },
+    {
+      "id": "sww4a",
+      "kind": "Stadtwanderweg 4a",
+      "name": "Ottakring",
+      "summary": "Offizieller Stadtwanderweg von der U3 Ottakring auf den Wilhelminenberg und zur Jubiläumswarte.",
+      "tags": ["Heurige am Weg", "Aussicht"],
+      "osmName": "Stadtwanderweg 4a",
+      "stops": ["marie", "schloss", "leitner", "jubilaeumswarte"]
+    },
+    {
+      "id": "sww4",
+      "kind": "Stadtwanderweg 4",
+      "name": "Jubiläumswarte",
+      "summary": "Offizieller Stadtwanderweg von Hütteldorf durch den Dehnepark zur Jubiläumswarte.",
+      "tags": ["Dehnepark", "Aussicht"],
+      "osmName": "Stadtwanderweg 4",
+      "stops": ["jubilaeumswarte", "kreuzeichenwiese"]
+    }
+  ],
+  "places": [
+    { "id": "feuerwache", "name": "Feuerwache Steinhof", "type": "start", "match": "Feuerwache", "fallback": [16.278251, 48.215316],
+      "note": "Start und Ziel der Hausrunden. Bus 46A und 46B.",
+      "source": "https://www.wienmobil.at/en/monitor/PT?lat=48.215316&lng=16.278251", "sourceLabel": "Abfahrten in WienMobil" },
+    { "id": "jubilaeumswarte", "name": "Jubiläumswarte", "type": "view", "match": "Jubiläumswarte", "prefer": "man_made",
+      "note": "Aussichtsturm. Oben sieht man über ganz Wien." },
+    { "id": "kreuzeichenwiese", "name": "Kreuzeichenwiese", "type": "spot", "match": "Kreuzeichenwiese",
+      "note": "Große Wiese nahe der Warte, gut für eine Rast." },
+    { "id": "teich", "name": "Teich im Wald", "type": "spot", "nearestWaterTo": "jubilaeumswarte",
+      "note": "Kleiner Teich nordwestlich der Warte, am Rückweg." },
+    { "id": "ottowagner", "name": "Otto-Wagner-Kirche am Steinhof", "type": "view", "match": "Kirche am Steinhof|Otto-Wagner-Kirche",
+      "note": "Jugendstilkirche am Rand der Steinhofgründe." },
+    { "id": "schloss", "name": "Schloss Wilhelminenberg", "type": "view", "match": "Schloss Wilhelminenberg",
+      "note": "Schloss mit Blick über die Stadt, am Stadtwanderweg 4a." },
+    { "id": "leitner", "name": "Weinbau Leitner", "type": "heuriger", "match": "Leitner",
+      "address": "Sprengersteig 68, 1160 Wien", "payment": "Nur Barzahlung",
+      "hoursText": "Di bis Sa 17:00–23:00, laut Wien-Tourismus. Termine auf der Website prüfen.",
+      "hours": { "2": ["17:00", "23:00"], "3": ["17:00", "23:00"], "4": ["17:00", "23:00"], "5": ["17:00", "23:00"], "6": ["17:00", "23:00"] },
+      "source": "https://www.weinbau-leitner.at", "sourceLabel": "weinbau-leitner.at" },
+    { "id": "herrmann", "name": "Weinbau Herrmann", "type": "heuriger", "match": "Herrmann",
+      "address": "Johann-Staud-Straße 51, 1160 Wien", "payment": "Keine Kartenzahlung",
+      "hoursText": "Seit 17.10. Samstag und Sonntag ab 15:00, laut Website.",
+      "hours": { "6": ["15:00", null], "0": ["15:00", null] },
+      "source": "https://www.weinbau-herrmann.com/aussteckkalender/", "sourceLabel": "Aussteckkalender" },
+    { "id": "marie", "name": "10er Marie", "type": "heuriger", "match": "10er Marie",
+      "address": "Ottakringer Straße 222-224, 1160 Wien",
+      "hoursText": "Di bis Sa 15:00–23:00, laut Wien-Tourismus.",
+      "hours": { "2": ["15:00", "23:00"], "3": ["15:00", "23:00"], "4": ["15:00", "23:00"], "5": ["15:00", "23:00"], "6": ["15:00", "23:00"] },
+      "source": "https://www.10ermarie.at", "sourceLabel": "10ermarie.at" },
+    { "id": "schutzhaus", "name": "Großes Schutzhaus Rosental", "type": "gasthaus", "match": "Schutzhaus.*Rosental|Gro(ß|ss)es Schutzhaus",
+      "address": "Heschweg 320, 1140 Wien",
+      "hoursText": "Täglich 10:00–23:00, Küche 11:00–21:00, laut Website.",
+      "hours": { "0": ["10:00", "23:00"], "1": ["10:00", "23:00"], "2": ["10:00", "23:00"], "3": ["10:00", "23:00"], "4": ["10:00", "23:00"], "5": ["10:00", "23:00"], "6": ["10:00", "23:00"] },
+      "source": "https://www.schutzhaus-rosental.at/", "sourceLabel": "schutzhaus-rosental.at" }
+  ]
+}
