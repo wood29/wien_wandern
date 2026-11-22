@@ -39,8 +39,8 @@
     }
   ],
   "places": [
-    { "id": "feuerwache", "name": "Feuerwache Steinhof", "type": "start", "match": "Feuerwache", "fallback": [16.278251, 48.215316],
-      "note": "Start und Ziel der Hausrunden. Bus 46A und 46B.",
+    { "id": "feuerwache", "name": "Feuerwache Am Steinhof", "type": "start", "match": "Feuerwache", "fallback": [16.278251, 48.215316],
+      "note": "Start und Ziel der Hausrunden. Bus 46A und 46B, von Hütteldorf auch 52B.",
       "source": "https://www.wienmobil.at/en/monitor/PT?lat=48.215316&lng=16.278251", "sourceLabel": "Abfahrten in WienMobil" },
     { "id": "jubilaeumswarte", "name": "Jubiläumswarte", "type": "view", "match": "Jubiläumswarte", "prefer": "man_made",
       "note": "Aussichtsturm. Oben sieht man über ganz Wien." },
